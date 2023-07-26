@@ -43,8 +43,30 @@ void main(){
     return(input_list);
   }
 
+  List<int> findAllEvens(List<int> input){
+    return input.where((number) => number % 2 == 0).toList(); // not totally understood it but
+    // 'where' is a method which filters the given list
+    // '(number) => number % 2 == 0' - verifies if the given number from the list is even
+    // if yes, .toList() will return the number into a brand new list
+  }
+
+  int findHighestValueOfAList(List<int> input){
+    return input.reduce((value, element) => value > element ? value : element);
+    // the '.reduce' method will have 'value' as the highest found value so far
+    // and it will compare it with element - each elem of the list
+    // when the 'element' is higher than the 'value', it is replaced with
+    // the new value
+  }
+
+
 // call the methods to get the result
-  List<int> test_list = listHandler();
-  print(test_list.runtimeType);
+
+  List<int> test_list = listHandler();  // create a new list via terminal
+  // print(test_list.runtimeType);
+  List<int> evenNumbers = findAllEvens(test_list);  // create a new list which will have all the even numbers of the intial list
+  int highestValue = findHighestValueOfAList(test_list);  // create a variable and store in it the highest value of the initial list
+  print("Original list is: $test_list.");
+  print("Even numbers are: $evenNumbers.");
+  print("The highest value of the list is: $highestValue");
 
 }
